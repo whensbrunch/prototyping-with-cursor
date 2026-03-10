@@ -2,8 +2,8 @@ import Link from "next/link";
 import styles from "./top-friends.module.css";
 
 const TOP_FRIENDS = [
-  { rank: 1, name: "Lady Gaga", subline: "Just dance" },
-  { rank: 2, name: "Taylor Swift", subline: "In my feelings" },
+  { rank: 1, name: "Rick Sanchez", subline: "Wubba lubba dub dub", image: "/rick-sanchez.png" },
+  { rank: 2, name: "Lady Gaga", subline: "Just dance", image: "/lady-gaga.png" },
   { rank: 3, name: "Beyoncé", subline: "Formation" },
   { rank: 4, name: "Rihanna", subline: "Diamonds" },
   { rank: 5, name: "Adele", subline: "Hello" },
@@ -28,7 +28,13 @@ export default function TopFriendsPage() {
             {TOP_FRIENDS.map((friend) => (
               <li key={friend.rank} className={styles.friendSlot}>
                 <span className={styles.rank}>{friend.rank}</span>
-                <div className={styles.avatar}>★</div>
+                <div className={styles.avatar}>
+                  {"image" in friend && friend.image ? (
+                    <img src={friend.image} alt="" />
+                  ) : (
+                    "★"
+                  )}
+                </div>
                 <div className={styles.name}>{friend.name}</div>
                 <div className={styles.subline}>{friend.subline}</div>
               </li>

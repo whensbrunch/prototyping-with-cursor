@@ -19,6 +19,11 @@ export default function Home() {
       description: 'A Myspace-style list of your top friends',
       path: '/top-friends'
     },
+    {
+      title: 'Digital piano',
+      description: 'Cyberpunk-style digital piano — click keys or use your keyboard to play',
+      path: '/prototypes/digital-piano'
+    },
     // Add your new prototypes here like this:
     // {
     //   title: 'Your new prototype',
