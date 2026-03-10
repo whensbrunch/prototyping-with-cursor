@@ -1,6 +1,6 @@
 /**
  * Root layout: fonts (Orbitron + Barlow), metadata, and base HTML.
- * Aesthetic: retro-futurism + mid-century modern.
+ * Aesthetic: Vaporwave / Synthwave.
  */
 
 import type { Metadata } from "next";

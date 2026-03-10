@@ -1,40 +1,78 @@
+/* Design tokens: Vaporwave / Synthwave */
+:root {
+  /* Neon palette */
+  --color-cyan: #05d9e8;
+  --color-cyan-dim: rgba(5, 217, 232, 0.6);
+  --color-magenta: #d300c5;
+  --color-pink: #ff2a6d;
+  --color-pink-soft: #ff7b9c;
+  --color-orange: #ffb627;
+  /* Dark sky */
+  --color-vapor-dark: #0d0221;
+  --color-vapor-purple: #1a0a2e;
+  --color-vapor-blue: #16213e;
+  --color-vapor-navy: #0f3460;
+  /* Surfaces (dark theme) */
+  --color-surface: rgba(26, 10, 46, 0.9);
+  --color-surface-light: rgba(26, 10, 46, 0.6);
+  --color-border: rgba(5, 217, 232, 0.4);
+  --color-border-hover: var(--color-cyan);
+  --color-ink: #e8e6f0;
+  /* Legacy aliases for compatibility */
+  --color-cream: #0d0221;
+  --color-navy: #05d9e8;
+  --color-teal: #05d9e8;
+  --color-mustard: #ffb627;
+  --color-coral: #ff2a6d;
+  /* Typography: sans serif */
+  --font-heading: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Spacing & shape */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --max-width: 960px;
+}
+
 /* CSS Reset */
-/* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* 2. Remove default margin */
 * {
   margin: 0;
 }
 
 body {
-  /* 3. Add accessible line-height */
   line-height: 1.5;
-  /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
-  /* 5. Set default font */
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-body);
+  background: linear-gradient(
+    180deg,
+    #0d0221 0%,
+    #1a0a2e 25%,
+    #16213e 50%,
+    #0f3460 75%,
+    #1a0a2e 100%
+  );
+  background-attachment: fixed;
+  color: var(--color-ink);
+  min-height: 100vh;
 }
 
-/* 5. Improve media defaults */
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
 
-/* 6. Inherit fonts for form controls */
 input, button, textarea, select {
   font: inherit;
 }
 
-/* 7. Avoid text overflows */
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
-/* 8. Improve line wrapping */
 p {
   text-wrap: pretty;
 }
@@ -42,9 +80,6 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
-/*
-  9. Create a root stacking context
-*/
 #root, #__next {
   isolation: isolate;
-} 
+}

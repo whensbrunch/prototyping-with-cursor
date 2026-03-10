@@ -15,8 +15,8 @@ export default function ConfettiButtonPrototype() {
       particleCount: 100,
       spread: 100,
       origin: { y: 0.6 },
-      colors: ['#FF69B4', '#00FFFF', '#9932CC'], // Pink, bright aqua, purple
-      shapes: ['square'], // Keep the square particles for the pixel look
+      colors: ['#05d9e8', '#ff2a6d', '#d300c5', '#ffb627', '#ff7b9c'],
+      shapes: ['square'],
     });
 
     setTimeout(() => setIsAnimating(false), 300);
@@ -25,7 +25,7 @@ export default function ConfettiButtonPrototype() {
   return (
     <div className={styles.container}>
       <div className={styles.buttonContainer}>
-        <Link href="/" className={styles.backButton}>←</Link>
+        <Link href="/" className={styles.backButton}>← Back</Link>
       </div>
       
       <div className={styles.window}>
@@ -35,7 +35,7 @@ export default function ConfettiButtonPrototype() {
         <div className={styles.windowContent}>
           <h1 className={styles.title}>Congratulations! You have set up your first repository.</h1>
           <button 
-            className={`${styles.confettiButton} ${isAnimating ? styles.animate : ''}`}
+            className={`${styles.confettiButton} ${isAnimating ? styles.animate : ""}`}
             onClick={triggerConfetti}
           >
             Celebrate

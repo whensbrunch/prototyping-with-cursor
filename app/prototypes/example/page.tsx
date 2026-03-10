@@ -1,42 +1,40 @@
 "use client";
 
 import styles from './styles.module.css';
-import { Geist } from 'next/font/google';
 import Link from 'next/link';
 import { useState, useRef } from 'react';
 
-const geist = Geist({ subsets: ['latin'] });
-
+/* Vaporwave / Synthwave theme variants */
 const THEMES = {
-  blue: {
-    primary: '#2a4b8d',
-    secondary: '#1a325e',
-    light: '#e6f0ff',
-    background: '#f5f8ff',
+  vapor: {
+    primary: '#05d9e8',
+    secondary: '#d300c5',
+    light: 'rgba(5, 217, 232, 0.2)',
+    background: 'rgba(26, 10, 46, 0.9)',
   },
-  pink: {
-    primary: '#d4649b',
-    secondary: '#a13d71',
-    light: '#ffe6f3',
-    background: '#fff5fa',
+  neon: {
+    primary: '#ff2a6d',
+    secondary: '#05d9e8',
+    light: 'rgba(255, 42, 109, 0.2)',
+    background: 'rgba(26, 10, 46, 0.9)',
   },
-  yellow: {
-    primary: '#ffc107',
-    secondary: '#b78500',
-    light: '#fff9e6',
-    background: '#fffdf5',
+  sunset: {
+    primary: '#ffb627',
+    secondary: '#ff2a6d',
+    light: 'rgba(255, 182, 39, 0.2)',
+    background: 'rgba(26, 10, 46, 0.9)',
   },
-  green: {
-    primary: '#64d47c',
-    secondary: '#3da152',
-    light: '#e6ffe9',
-    background: '#f5fff6',
+  magenta: {
+    primary: '#d300c5',
+    secondary: '#ff7b9c',
+    light: 'rgba(211, 0, 197, 0.2)',
+    background: 'rgba(26, 10, 46, 0.9)',
   },
-  black: {
-    primary: '#444444',
-    secondary: '#222222',
-    light: '#f0f0f0',
-    background: '#ffffff',
+  cyan: {
+    primary: '#05d9e8',
+    secondary: '#ffb627',
+    light: 'rgba(5, 217, 232, 0.2)',
+    background: 'rgba(26, 10, 46, 0.9)',
   },
 };
 
@@ -45,7 +43,7 @@ type ThemeColor = keyof typeof THEMES;
 export default function ExamplePrototype() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
-  const [theme, setTheme] = useState<ThemeColor>('blue');
+  const [theme, setTheme] = useState<ThemeColor>('vapor');
   const dragStart = useRef({ x: 0, y: 0 });
   const windowStart = useRef({ x: 0, y: 0 });
 
@@ -74,20 +72,12 @@ export default function ExamplePrototype() {
   const currentTheme = THEMES[theme];
 
   return (
-    <div className={`${styles.container} ${geist.className}`}
+    <div className={styles.container}
          onMouseMove={handleMouseMove}
          onMouseUp={handleMouseUp}
-         onMouseLeave={handleMouseUp}
-         style={{
-           background: `repeating-conic-gradient(${currentTheme.primary} 0% 25%, ${currentTheme.secondary} 0% 50%) 50% / 2px 2px`
-         }}>
+         onMouseLeave={handleMouseUp}>
       <div className={styles.buttonContainer}>
-        <Link href="/" className={styles.backButton} style={{
-          backgroundColor: currentTheme.light,
-          borderColor: currentTheme.secondary,
-          color: currentTheme.secondary,
-          boxShadow: `2px 2px 0 ${currentTheme.secondary}4D`
-        }}>☜</Link>
+        <Link href="/" className={styles.backButton}>← Back</Link>
       </div>
       <div className={styles.themeContainer}>
         {(Object.keys(THEMES) as ThemeColor[]).map((color) => (
@@ -122,35 +112,35 @@ export default function ExamplePrototype() {
         <div className={styles.windowContent} style={{
           backgroundColor: currentTheme.background,
           borderColor: currentTheme.secondary,
-          boxShadow: `2px 2px 0 ${currentTheme.secondary}4D`
+          boxShadow: `0 0 20px ${currentTheme.secondary}40`
         }}>
           <h1 className={styles.heading1} style={{ color: currentTheme.secondary }}>
             Welcome to example prototype
           </h1>
           <div className={styles.section} style={{ 
-            borderColor: currentTheme.primary,
-            backgroundColor: '#ffffff'
+            borderLeftColor: currentTheme.primary,
+            backgroundColor: 'var(--color-surface-light)'
           }}>
             <h2 className={styles.heading2} style={{ color: currentTheme.secondary }}>
               How to create a prototype
             </h2>
             <ol className={styles.list}>
-              <li style={{ color: currentTheme.secondary }}>① Open Composer Agent (⌘-I)</li>
-              <li style={{ color: currentTheme.secondary }}>② Type: "Create a prototype for me"</li>
-              <li style={{ color: currentTheme.secondary }}>③ Describe the key features you need</li>
-              <li style={{ color: currentTheme.secondary }}>④ Share any design preferences</li>
+              <li style={{ color: 'var(--color-ink)' }}>① Open Composer Agent (⌘-I)</li>
+              <li style={{ color: 'var(--color-ink)' }}>② Type: &quot;Create a prototype for me&quot;</li>
+              <li style={{ color: 'var(--color-ink)' }}>③ Describe the key features you need</li>
+              <li style={{ color: 'var(--color-ink)' }}>④ Share any design preferences</li>
             </ol>
           </div>
           <div className={styles.section} style={{ 
-            borderColor: currentTheme.primary,
-            backgroundColor: '#ffffff'
+            borderLeftColor: currentTheme.primary,
+            backgroundColor: 'var(--color-surface-light)'
           }}>
             <h2 className={styles.heading2} style={{ color: currentTheme.secondary }}>
               Things to know
             </h2>
             <ol className={styles.list}>
-              <li style={{ color: currentTheme.secondary }}>◇ Use shared components from components folder</li>
-              <li style={{ color: currentTheme.secondary }}>◇ Use shared styles from styles folder</li>
+              <li style={{ color: 'var(--color-ink)' }}>◇ Use shared components from components folder</li>
+              <li style={{ color: 'var(--color-ink)' }}>◇ Use shared styles from styles folder</li>
             </ol>
           </div>
         </div>

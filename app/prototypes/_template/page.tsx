@@ -13,6 +13,9 @@ import styles from './styles.module.css';
 export default function PrototypeTemplate() {
   return (
     <div className={styles.container}>
+      <div className={styles.buttonContainer}>
+        <Link href="/" className={styles.backButton}>← Back</Link>
+      </div>
       <main className={styles.main}>
         {/* Add your prototype content here */}
       </main>
