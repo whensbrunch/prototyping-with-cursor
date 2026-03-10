@@ -1,28 +1,14 @@
 /**
- * Root layout component that wraps all pages in the application.
- * This layout:
- * - Sets up Geist fonts (both Sans and Mono variants)
- * - Configures metadata like title and favicon
- * - Provides the basic HTML structure
- * - Applies font variables to the entire app
+ * Root layout: fonts (Orbitron + Barlow), metadata, and base HTML.
+ * Aesthetic: retro-futurism + mid-century modern.
  */
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { orbitron, barlow } from "./fonts";
 import "./styles/globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Elizabeth's prototypes",
+  title: "David's prototypes",
   description: "The home for all my prototypes",
   icons: {
     icon: [
@@ -41,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${orbitron.variable} ${barlow.variable}`}>
         {children}
       </body>
     </html>
